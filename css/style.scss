@@ -1,0 +1,117 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+
+/* Core styles */
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none; 
+    text-decoration: none;
+    list-style: none;
+    transition: all .2s linear;
+}
+
+$bg-color: #0A121F;
+$main-color: #3A68B8;
+$grey-color: rgba(255,255,255,.55);
+$blue-color: #0d6efd;
+$white: #fff;
+
+@mixin displayFlex() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@mixin infoText($value1) {
+    font-size: $value1;
+    color: $white;
+    font-weight: 700;
+    padding: 1.3rem 0;
+}
+
+@mixin descriptionText() {
+    font-size: 1.4rem;
+    color: $grey-color;
+    line-height: 1.5;
+    margin: 1.8rem 0;
+}
+
+html {
+    font-size: 62.5%; /* by defaul 1rem = 16px, => 1rem = 16 * 0.625 = 10px */
+    overflow-x: hidden;
+}   
+
+body {
+    background: $bg-color;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    color: $white;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+}
+
+/* Blog section styles */
+.blog {
+
+    .container {
+        margin-top: 2rem;
+        @include displayFlex();
+
+        .content {
+            flex: 1 1 38rem;
+
+            .info {
+                @include infoText(3rem);
+            }
+
+            .description {
+                @include descriptionText();
+            }
+        }
+
+        .image {
+            flex: 1 1 38rem;
+
+            img {
+                width: 50rem;
+                height: 60rem;
+            }
+        }
+    }
+}
+
+/* Media queries */
+@media only screen and (max-width: 991px) {
+    .blog {
+
+        .container {
+            padding: 2rem;
+
+            .image {
+                text-align: center;
+            }
+            
+            // flex-wrap: wrap;
+            // flex-direction: column;
+
+            // .content {
+            //     flex-basis: 90%;
+            // }
+
+            // .image {
+            //     flex-basis: 90%;
+            // }
+        }
+    }
+}
