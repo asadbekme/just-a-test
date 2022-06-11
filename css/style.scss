@@ -25,6 +25,12 @@ $white: #fff;
     flex-wrap: wrap;
 }
 
+@mixin displayGrid() {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    gap: 1.5rem;
+}
+
 @mixin infoText($value1) {
     font-size: $value1;
     color: $white;
@@ -66,10 +72,11 @@ body {
 
     .container {
         margin-top: 2rem;
-        @include displayFlex();
+        // @include displayFlex();
+        @include displayGrid();
 
         .content {
-            flex: 1 1 38rem;
+            // flex: 1 1 38rem;
 
             .info {
                 @include infoText(3rem);
@@ -81,7 +88,7 @@ body {
         }
 
         .image {
-            flex: 1 1 38rem;
+            // flex: 1 1 38rem;
 
             img {
                 width: 50rem;
@@ -101,7 +108,7 @@ body {
             .image {
                 text-align: center;
             }
-            
+
             // flex-wrap: wrap;
             // flex-direction: column;
 
